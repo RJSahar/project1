@@ -17,7 +17,7 @@ $sum_files=$_POST['sum_files'];
 $a=1;
 while ($a <= $sum_files)
 {
-	$filename=substr(str_shuffle($permitted_chars), 0 , 1).$a.'.txt';
+	$filename=substr(str_shuffle($permitted_chars), 0 , 10).$a.'.txt';
 	$filetext=$filename;
 	file_put_contents($filename, $filetext);
 	$a++;
