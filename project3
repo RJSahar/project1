@@ -14,19 +14,24 @@
 <?php
 
 	$permitted_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	$sum_files = $_POST['sum_files'];
+	$sum_files = $_POST['sum_files'] ?? null;
 	
+	if ($sum_files == null) {
+		exit;
+	}
+
 	for ($i = 1; $i <= $sum_files; $i++) { 
 	
-		$filename = substr(str_shuffle($permitted_chars), 0 , 10) . $i;
-		$filetext = $filename;
-		file_put_contents($filename . '.txt', $filetext);
+		$file_name = substr(str_shuffle($permitted_chars), 0 , 10) . $i;
+		$file_text = $file_name;
+		file_put_contents($file_name . '.txt', $file_text);
 		
 		if (( $i % 2 ) == 0 ) {
-			unlink($filename . '.txt');
-			echo $filename;
+			unlink($file_name . '.txt');
+			$deleted_files[ ($i-1) ] = $file_name;
 		}
 
 	}
-
-?>
+foreach ($deleted_files as $i => $deleted_files) {
+	echo $deleted_files . "<br>\n";
+}
