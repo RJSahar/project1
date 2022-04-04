@@ -1,3 +1,24 @@
+<?php 
+if ($_POST['submit'])
+{
+	$number1 = (int)$_POST['number1'];
+	$number2 = (int)$_POST['number2'];
+	$operation = $_POST['operation'];
+	$result;
+    if ($operation == '+')
+		$result = $number1 + $number2;
+	else if ($operation == '-')
+		$result = $number1 - $number2;
+	else if ($operation == '*')
+	  	$result = $number1 * $number2;
+	else if ($operation == '/')
+	{
+		if ($number2==0)
+			echo 'Деление на ноль невозможно';
+		else $result = $number1 / $number2;
+	}
+}
+?>
 <!DOCTYPE HTML>
 <html lang = "ru">
 <head>
