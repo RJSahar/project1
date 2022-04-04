@@ -1,0 +1,25 @@
+<?php
+$number1 = $argv[1];
+$operation = $argv[2];
+$number2 = $argv[3];
+
+function calc($result) {
+
+
+    if ($operation == '+')
+		$result = $number1 + $number2;
+	else if ($operation == '-')
+		$result = $number1 - $number2;
+	else if ($operation == '*')
+	  	$result = $number1 * $number2;
+	else if ($operation == '/')
+	{
+		if ($operation == 0)
+			echo 'Деление на ноль невозможно';
+		else $result = $number1 / $number2;
+	}
+}
+
+echo "$number1 $operation $number2\n Результат: $result\n";
+echo "$number1 $operation $number2";
+?>
