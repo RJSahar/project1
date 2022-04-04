@@ -12,14 +12,16 @@
 </html>
 
 <?php
-$permitted_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-$sum_files=$_POST['sum_files'];
-$a=1;
-while ($a <= $sum_files)
-{
-	$filename=substr(str_shuffle($permitted_chars), 0 , 10).$a.'.txt';
-	$filetext=$filename;
-	file_put_contents($filename, $filetext);
-	$a++;
-}
+
+	$permitted_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$sum_files = $_POST['sum_files'];
+	
+	for ($i = 1; $i <= $sum_files; $i++) { 
+	
+		$filename = substr(str_shuffle($permitted_chars), 0 , 10) . $i;
+		$filetext = $filename;
+		file_put_contents($filename . '.txt', $filetext);
+
+	}
+
 ?>
