@@ -1,22 +1,9 @@
-<!DOCTYPE HTML>
-<html lang = "ru">
-<head>
-	<meta charset = "UTF-8">
-</head>
-<body>
-	<h1>Введите количество файлов txt</h1>
-	<form action="" method="post" class="text">
-		<input type="text" name="sum_files" class="numbers">
-	</form>
-</body>
-</html>
-
 <?php
 
 	$permitted_chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-	$sum_files = $_POST['sum_files'] ?? null;
+	$sum_files = $argv[1] ?? null;
 	
-	if ($sum_files == null) {
+	if ($sum_files == null or $sum_files == 0) {
 		exit;
 	}
 
@@ -33,5 +20,5 @@
 
 	}
 foreach ($deleted_files as $i => $deleted_files) {
-	echo $deleted_files . "<br>\n";
+	echo $deleted_files . "\n";
 }
